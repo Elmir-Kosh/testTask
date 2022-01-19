@@ -4,21 +4,12 @@ public class TestTask {
 
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("Bob");
-        list.add("Alice");
-        list.add("Joe");
-        list.add("bob");
-        list.add("alice");
-        list.add("dEN");
-        TestTask example = new TestTask();
-        example.print(example.counterFunction(list));
     }
 
     public  Map<String, Integer> counterFunction(List<String> list) {
         Map<String, Integer> counter = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         for (String name : list) {
-            if (counter.keySet().contains(name)) {
+            if (counter.containsKey(name)) {
                 counter.put(name, counter.get(name) + 1);
             } else {
                 counter.put(name, 1);

@@ -9,19 +9,33 @@ import java.util.Set;
 public class CounterFunctionTest extends TestTask {
 
     @Test
-    public void counterFunctionTest() {
+    public void counterFunctionKeyTest() {
         List<String> list = new ArrayList<>();
         list.add("Bob");
         list.add("Alice");
         list.add("Joe");
         list.add("bob");
         list.add("alice");
-        list.add("");
-        list.add("1");
 
-        Set<String> setKeys = counterFunction(list).keySet();
-        Assertions.assertEquals(5, setKeys.size());
+        Set<String> keysValue = counterFunction(list).keySet();
+        Assertions.assertEquals(3, keysValue.size());
+    }
 
+    @Test
+    public void counterFunctionRegisterTest() {
+        List<String> list = new ArrayList<>();
+        list.add("Bob");
+        list.add("Alice");
+        list.add("Joe");
+        list.add("bob");
+        list.add("alice");
 
+        List<String> standartList = new ArrayList<>();
+        standartList.add("Alice");
+        standartList.add("Bob");
+        standartList.add("Jo1");
+
+        Set<String> keysValue = counterFunction(list).keySet();
+        Assertions.assertTrue(keysValue.containsAll(standartList));
     }
 }
